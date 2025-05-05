@@ -3,7 +3,6 @@
     "name": "local-first-expo-test",
     "slug": "local-first-expo-test",
     "version": "1.0.0",
-
     "scheme": "local-first-expo-test",
     "web": {
       "bundler": "metro",
@@ -12,14 +11,18 @@
     },
     "plugins": [
       "expo-router",
-      ["@morrowdigital/watermelondb-expo-plugin"],
+      [
+        "@morrowdigital/watermelondb-expo-plugin"
+      ],
       [
         "expo-build-properties",
         {
           "android": {
             "kotlinVersion": "1.6.10",
             "packagingOptions": {
-              "pickFirst": ["**/libc++_shared.so"]
+              "pickFirst": [
+                "**/libc++_shared.so"
+              ]
             }
           }
         }
@@ -27,29 +30,29 @@
     ],
     "experiments": {
       "typedRoutes": true,
-
       "tsconfigPaths": true
     },
-
     "orientation": "portrait",
     "icon": "./assets/icon.png",
-
     "userInterfaceStyle": "light",
-
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.ivanleopoldoc.localfirstexpotest"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.ivanleopoldoc.localfirstexpotest"
     }
   }
 }
