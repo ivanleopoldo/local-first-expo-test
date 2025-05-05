@@ -1,11 +1,9 @@
-import { supabase } from '@/lib/db/supabase';
 import { sync } from '@/lib/db/sync';
 import { database } from '@/lib/db/watermelon';
 import { Todo } from '@/lib/db/watermelon/models';
-import { withObservables } from '@nozbe/watermelondb/react';
 import { Stack } from 'expo-router';
-import { useEffect } from 'react';
-import { Button, FlatList, SafeAreaView, Text } from 'react-native';
+import { Button, SafeAreaView } from 'react-native';
+import TodoList from '@/components/TodoList';
 
 export default function Home() {
   const todos = database.get<Todo>('todos').query();
@@ -38,13 +36,3 @@ export default function Home() {
     </>
   );
 }
-
-function TodoListBase({ todos }: { todos: Todo[] }) {
-  return <FlatList data={todos} renderItem={({ item }) => <Text>{item.title}</Text>} />;
-}
-
-const enhance = withObservables(['todos'], ({ todos }) => ({
-  todos,
-}));
-
-const TodoList = enhance(TodoListBase);
